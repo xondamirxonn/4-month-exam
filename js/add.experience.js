@@ -31,4 +31,10 @@ document.addEventListener("DOMContentLoaded" , async () => {
  
 form.reset()
   })
+
+    logout.addEventListener("click", (e) => {
+      e.preventDefault();
+      localStorage.removeItem("register-token");
+      window.location.replace("/pages/login.html");
+    });
 })

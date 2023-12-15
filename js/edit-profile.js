@@ -65,4 +65,10 @@ document.addEventListener("DOMContentLoaded", async () => {
    form[10].value = element.data.linkedin;
    form[11].value = element.data.instagram;
   
+
+     logout.addEventListener("click", (e) => {
+       e.preventDefault();
+       localStorage.removeItem("register-token");
+       window.location.replace("/pages/login.html");
+     });
 });

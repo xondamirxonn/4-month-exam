@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         // window.location.reload();
         console.log(response);
       });
-      let  comment  = await axios.get(
+      let comment = await axios.get(
         `https://nt-devconnector.onrender.com/api/comment/${profile._id}`,
         {
           headers: {
@@ -91,10 +91,12 @@ document.addEventListener("DOMContentLoaded", async (e) => {
           },
         }
       );
-
-      
-
-    
     }
+  });
+
+  logout.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.removeItem("register-token");
+    window.location.replace("/pages/login.html");
   });
 });
