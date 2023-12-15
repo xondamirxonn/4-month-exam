@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         : type === "info"
         ? "primary"
         : "warning";
-    // let className = text-xl ,ps-8 ,py-2 pe-4 rounded-lg border border-${color}-900 text-${color}-900 bg-${color}-200;
     let className = `fs-5 ps-2 py-2 pe-4 rounded-2 border border-${color} bg-${color}`;
 
     alertElement.classList.add(...className.split(" "));
@@ -134,7 +133,7 @@ window.location.replace("/pages/comment.html")
     })
 
   });
-  // console.log(response);
+  
 
   logout.addEventListener("click", (e) => {
     e.preventDefault();

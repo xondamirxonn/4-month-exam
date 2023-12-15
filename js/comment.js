@@ -1,6 +1,8 @@
-document.addEventListener("DOMContentLoaded" , async (e)=> {
-  let profiles = document.querySelector("#profiles")
-   let { data: response } = await axios.get(
+document.addEventListener("DOMContentLoaded", async (e) => {
+  let profiles = document.querySelector("#profiles");
+  let commentText = document.querySelector("commentText");
+  let form = document.querySelector("form");
+  let { data: response } = await axios.get(
     "https://nt-devconnector.onrender.com/api/posts",
     {
       headers: {
@@ -8,8 +10,9 @@ document.addEventListener("DOMContentLoaded" , async (e)=> {
       },
     }
   );
+
   response.forEach(async (profile) => {
-    if(profile._id === localStorage.getItem("profile-id")){
+    if (profile._id === localStorage.getItem("profile-id")) {
       let asosiyDiv = document.createElement("div");
       let div = document.createElement("div");
       let div2 = document.createElement("div");
@@ -60,21 +63,38 @@ document.addEventListener("DOMContentLoaded" , async (e)=> {
       profiles.classList.add("p-4", "w-75", "m-auto");
       asosiyDiv.append(div, div2);
       profiles.append(asosiyDiv);
+
+      form.addEventListener("submit", async (e) => {
+        let text = form[0].value;
+
+        let { data: data } = await axios.post(
+          `https://nt-devconnector.onrender.com/api/comment/${profile._id}`,
+          {
+            text,
+          },
+          {
+            headers: {
+              "x-auth-token": `${localStorage.getItem("register-token")}`,
+            },
+          }
+        );
+
+        form.reset();
+        // window.location.reload();
+        console.log(response);
+      });
+      let  comment  = await axios.get(
+        `https://nt-devconnector.onrender.com/api/comment/${profile._id}`,
+        {
+          headers: {
+            "x-auth-token": `${localStorage.getItem("register-token")}`,
+          },
+        }
+      );
+
+      
+
+    
     }
-
-   
-    // discussion.addEventListener("click" , async (e) => {
-    //   let { data} = await axios.get(
-    //     `https://nt-devconnector.onrender.com/api/${profile._id}`,
-    //     {
-    //       headers: {
-    //         "x-auth-token": `${localStorage.getItem("profile-id")}`,
-    //       },
-    //     }
-    //   );
-
-    //   console.log(data);
-    // })
-
   });
-})
+});

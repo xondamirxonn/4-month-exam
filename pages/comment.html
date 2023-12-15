@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -22,10 +22,10 @@
       src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
     ></script>
     <script defer src="/js/comment.js"></script>
-  <title>Document</title>
-</head>
-<body>
-     <header class="bg-dark text-white">
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="bg-dark text-white">
       <nav
         class="container d-flex justify-content-between py-2 align-items-center"
       >
@@ -60,8 +60,28 @@
         </ul>
       </nav>
     </header>
-    
 
     <main id="profiles"></main>
-</body>
+
+    <section>
+      <div class="p-5 my-3">
+        <h1 style="color: #17a2b8">Posts</h1>
+        <h4 class="my-3">Welcome to the community</h4>
+
+        <div style="background-color: #17a2b8" class="p-2">
+          <h2>Leave a Comment ...</h2>
+        </div>
+        <form class="">
+          <textarea
+            rows="5"
+            class="w-100 my-3"
+            placeholder="Comment the post"
+          ></textarea>
+          <button class="btn btn-dark">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="commentText"></section>
+  </body>
 </html>
